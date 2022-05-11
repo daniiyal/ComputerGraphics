@@ -1,0 +1,6 @@
+﻿  Task2_KG.cpp
+C:\Users\danik\source\repos\Task1_KG\Task2_KG\Task2_KG.cpp(167,68): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task1_KG\Task2_KG\Task2_KG.cpp(167,55): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task1_KG\Task2_KG\Task2_KG.cpp(167,42): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task1_KG\Task2_KG\Task2_KG.cpp(167,29): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  Task2_KG.vcxproj -> C:\Users\danik\source\repos\Task1_KG\x64\Debug\Task2_KG.exe

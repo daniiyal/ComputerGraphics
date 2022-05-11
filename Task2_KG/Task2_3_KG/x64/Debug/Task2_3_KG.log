@@ -1,0 +1,4 @@
+﻿  Task2_3_KG.cpp
+C:\Users\danik\source\repos\Task2_KG\Task2_3_KG\Task2_3_KG.cpp(84,33): warning C4244: =: преобразование "double" в "LONG", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_3_KG\Task2_3_KG.cpp(85,33): warning C4244: =: преобразование "double" в "LONG", возможна потеря данных
+  Task2_3_KG.vcxproj -> C:\Users\danik\source\repos\Task2_KG\x64\Debug\Task2_3_KG.exe

@@ -1,0 +1,11 @@
+﻿  Task2_KG.cpp
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(174,26): warning C4244: инициализация: преобразование "LONG" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(174,54): warning C4305: -=: усечение из "double" в "float"
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(176,25): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(177,46): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(177,42): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(180,55): warning C4305: +=: усечение из "double" в "float"
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(182,25): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(184,44): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+C:\Users\danik\source\repos\Task2_KG\Task2_KG\Task2_KG.cpp(184,32): warning C4244: аргумент: преобразование "float" в "int", возможна потеря данных
+  Task2_KG.vcxproj -> C:\Users\danik\source\repos\Task2_KG\x64\Debug\Task2_KG.exe
