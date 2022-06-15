@@ -284,6 +284,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         }
     }
+    case WM_ERASEBKGND:
+        break;
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
@@ -304,6 +306,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                     points[i].y = (long)floor(cube_template[i][1] * 6 + cube_template[i][2] * stn * 6 + r.bottom / 2);
              
             }
+
 
             for (int i = 0; i < faces; i++)
                 for (int j = 0; j < fvertex; j++)
@@ -328,6 +331,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             BitBlt(hdc, 0, 0, r.right, r.bottom, hdcBuf, 0, 0, SRCCOPY);
             SelectObject(hdcBuf, hOldBmp);
+
             DeleteDC(hdcBuf);
             DeleteObject(bmp);
 

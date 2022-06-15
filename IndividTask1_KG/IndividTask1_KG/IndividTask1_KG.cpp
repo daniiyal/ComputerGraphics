@@ -4,6 +4,10 @@
 #include "framework.h"
 #include "IndividTask1_KG.h"
 
+#define _USE_MATH_DEFINES // for C++
+#include <cmath>
+
+
 #define MAX_LOADSTRING 100
 
 #define COLOR RGB(255, 0, 0)
@@ -12,6 +16,8 @@ const int   rect_width = 400,
             rect_height = 300, 
             RAD = 40;
 
+
+#define ID_TIMER_1 100
 
 RECT r;
 // Глобальные переменные:
@@ -89,22 +95,33 @@ void drawLine(int x1, int y1, int x2, int y2, HDC hdc) {
 }
 
 
-void drawRectangle(int x1, int y1, int x2, int y2, HDC hdc) {
+struct pnt {
+    POINT p;
+    double angle;
+};
+
+struct pnt points[7];
+
+struct pnt new_points[7];
+
+
+
+
+void drawRectangle(pnt points[], HDC hdc) {
     
-    int x3 = x1;
-    int y3 = y2;
-    int x4 = x2;
-    int y4 = y1;
-    
-    drawLine(x1, y1, x4, y4, hdc);
-    drawLine(x4, y4, x2, y2, hdc);
-    drawLine(x2, y2, x3, y3, hdc);
-    drawLine(x3, y3, x1, y1, hdc);
+    drawLine(new_points[0].p.x, new_points[0].p.y, new_points[1].p.x, new_points[1].p.y, hdc);
+    drawLine(new_points[1].p.x, new_points[1].p.y, new_points[2].p.x, new_points[2].p.y, hdc);
+    drawLine(new_points[2].p.x, new_points[2].p.y, new_points[3].p.x, new_points[3].p.y, hdc);
+    drawLine(new_points[3].p.x, new_points[3].p.y, new_points[0].p.x, new_points[0].p.y, hdc);
 }
 
 void drawCircle(int x0, int y0, int radius, HDC hdc) {
     int x = 0;
     int y = radius;
+
+    new_points[4].p.x = x0;
+    new_points[4].p.y = y0;
+
     int delta = 1 - 2 * radius;
     int error = 0;
     while (y >= 0) {
@@ -130,18 +147,99 @@ void drawCircle(int x0, int y0, int radius, HDC hdc) {
     }
 }
 
+int count = 1;
 
-void drawFigure(int x, int y, HDC hdc) {
-    drawRectangle(x - rect_width / 2, y - rect_height/2, x + rect_width / 2, y + rect_height / 2, hdc);
+void rotate(double x_pivot, double y_pivot, double angle) {
 
-    int x_right_high = x + rect_width / 2 - 1;
-    int y_right_high = y - rect_height / 2;
+    const double g2r = M_PI / 180.;
+    //angle *= g2r;
 
+    for (int i = 0; i < 7; i++)
+    {
+        double x_shifted = points[i].p.x - x_pivot;
+        double y_shifted = points[i].p.y - y_pivot;
 
-    drawCircle(x_right_high - RAD, y_right_high + RAD, RAD, hdc);
-
-    drawLine(x - rect_width / 2, y, x, y + rect_height / 2, hdc);
+        
+        new_points[i].p.x = x_pivot + (x_shifted * cos(angle * g2r *count) + y_shifted * sin(angle * g2r * count));
+        new_points[i].p.y = y_pivot + (-x_shifted * sin(angle * g2r * count) + y_shifted * cos(angle * g2r * count));
+    }
+    if (count == 360/angle)
+        count = 0;
+    else
+        count++;
 }
+
+void swap(pnt points1, pnt points2) {
+    pnt temp = points1;
+    points1 = points2;
+    points2 = temp;
+}
+
+void Reverse() {
+    for (int i = 0; i < 7; i++)
+    {
+        new_points[i].p.x = -new_points[i].p.x;
+        points[i].p.x = -points[i].p.x;
+    }
+}
+
+void drawFigure(HDC hdc) {
+
+    drawRectangle(new_points, hdc);
+
+    drawCircle(new_points[4].p.x, new_points[4].p.y, RAD, hdc);
+
+    drawLine(new_points[5].p.x, new_points[5].p.y, new_points[6].p.x, new_points[6].p.y, hdc);
+}
+
+
+void InitPoints(int x0, int y0) {
+    if (points[0].p.x == 0) {
+        int x1 = x0 - rect_width / 2;
+        int y1 = y0 - rect_height / 2;
+
+        int x2 = x0 + rect_width / 2;
+        int y2 = y0 - rect_height / 2;
+
+        int x3 = x0 + rect_width / 2;
+        int y3 = y0 + rect_height / 2;
+
+        int x4 = x0 - rect_width / 2;
+        int y4 = y0 + rect_height / 2;
+
+        int x5 = x2 - RAD;
+        int y5 = y2 + RAD;
+
+        points[0].p.x = x1;
+        points[0].p.y = y1;
+
+        points[1].p.x = x2;
+        points[1].p.y = y2;
+
+        points[2].p.x = x3;
+        points[2].p.y = y3;
+
+        points[3].p.x = x4;
+        points[3].p.y = y4;
+
+        points[4].p.x = x5;
+        points[4].p.y = y5;
+
+        points[5].p.x = x1;
+        points[5].p.y = y0;
+
+        points[6].p.x = x0;
+        points[6].p.y = y3;
+
+
+        for (int i = 0; i < 7; i++)
+        {
+            new_points[i] = points[i];
+        }
+    }
+
+}
+
 
 //
 //  ФУНКЦИЯ: MyRegisterClass()
@@ -182,10 +280,10 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Сохранить маркер экземпляра в глобальной переменной
-
+   
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
-
+   //InitPoints(500, 500);
    if (!hWnd)
    {
       return FALSE;
@@ -209,6 +307,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    HDC hdc;
+    
     switch (message)
     {
     case WM_COMMAND:
@@ -228,18 +328,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
+    case WM_LBUTTONDOWN:
+        SetTimer(hWnd, ID_TIMER_1, 10, nullptr);
+        break;
+    case WM_RBUTTONDOWN:
+        KillTimer(hWnd, ID_TIMER_1);
+        break;
+
+    case WM_TIMER:
+        rotate(150, 50, 1);
+        InvalidateRect(hWnd, NULL, 1);
+        UpdateWindow(hWnd);
+        break;
+    case WM_MBUTTONDOWN:
+        Reverse();
     case WM_PAINT:
         {
             GetClientRect(hWnd, &r);
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
 
-            drawFigure(r.right / 2, r.bottom / 2, hdc);
+            InitPoints(r.right / 2, r.bottom / 2);
+
+            PAINTSTRUCT ps;
+            hdc = BeginPaint(hWnd, &ps);
+
+            drawFigure(hdc);
 
             // TODO: Добавьте сюда любой код прорисовки, использующий HDC...
             EndPaint(hWnd, &ps);
         }
         break;
+
     case WM_DESTROY:
         PostQuitMessage(0);
         break;

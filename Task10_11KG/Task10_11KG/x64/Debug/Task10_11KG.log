@@ -1,0 +1,18 @@
+﻿  Task10_11KG.cpp
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(3,1): warning C4005: _CRT_SECURE_NO_WARNINGS: изменение макроопределения
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(3,1): message : "_CRT_SECURE_NO_WARNINGS" ранее объявлен в командной строке
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(33,24): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(33,24): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(34,8): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(34,8): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(34,35): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(34,35): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(35,9): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(35,9): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(35,41): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(35,41): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(36,9): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(36,9): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(36,42): warning C4838: Преобразование из "double" в "float" требует сужающего преобразования.
+C:\Users\danik\source\repos\Task10_11KG\Task10_11KG\Task10_11KG.cpp(36,42): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  Task10_11KG.vcxproj -> C:\Users\danik\source\repos\Task10_11KG\x64\Debug\Task10_11KG.exe

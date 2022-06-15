@@ -1,2 +1,4 @@
 ﻿  IndividTask1_KG.cpp
-  IndividTask1_KG.vcxproj -> C:\Users\danik\source\repos\IndividTask1_KG\x64\Debug\IndividTask1_KG.exe
+C:\Users\danik\source\repos\KG\IndividTask1_KG\IndividTask1_KG\IndividTask1_KG.cpp(163,37): warning C4244: =: преобразование "double" в "LONG", возможна потеря данных
+C:\Users\danik\source\repos\KG\IndividTask1_KG\IndividTask1_KG\IndividTask1_KG.cpp(164,37): warning C4244: =: преобразование "double" в "LONG", возможна потеря данных
+  IndividTask1_KG.vcxproj -> C:\Users\danik\source\repos\KG\IndividTask1_KG\x64\Debug\IndividTask1_KG.exe

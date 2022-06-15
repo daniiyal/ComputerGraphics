@@ -1,0 +1,5 @@
+﻿  Task13_14KG.cpp
+  should not include d3dtypes.h when compiling for DX8 or newer interfaces
+C:\Users\danik\source\repos\KG\Task13_14KG\Task13_14KG\Task13_14KG.cpp(268,22): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+C:\Users\danik\source\repos\KG\Task13_14KG\Task13_14KG\Task13_14KG.cpp(269,22): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  Task13_14KG.vcxproj -> C:\Users\danik\source\repos\KG\Task13_14KG\x64\Debug\Task13_14KG.exe
